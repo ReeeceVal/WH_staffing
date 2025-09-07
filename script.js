@@ -181,8 +181,12 @@ function handlePinBlockInput(event, index) {
     updateHiddenPinField();
     
     // Move to next block immediately when a digit is entered
+    // This ensures smooth mobile experience with automatic focus progression
     if (value && index < pinBlocks.length - 1) {
-        pinBlocks[index + 1].focus();
+        // Use setTimeout to ensure the input event is fully processed
+        setTimeout(() => {
+            pinBlocks[index + 1].focus();
+        }, 0);
     }
 }
 
@@ -213,8 +217,13 @@ function handlePinBlockKeydown(event, index) {
         block.value = '';
         updateHiddenPinField();
     }
-    // Only allow numeric input
-    else if (!/[0-9]/.test(event.key) && !['Tab', 'Enter', 'Escape'].includes(event.key)) {
+    // Handle numeric input - allow it to proceed to input handler
+    else if (/[0-9]/.test(event.key)) {
+        // Allow the input event to handle focus progression
+        return;
+    }
+    // Block non-numeric input except for navigation keys
+    else if (!['Tab', 'Enter', 'Escape'].includes(event.key)) {
         event.preventDefault();
     }
 }
