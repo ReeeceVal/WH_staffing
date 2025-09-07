@@ -1,0 +1,17 @@
+{
+  "name": "wh-staffing",
+  "version": "1.0.0",
+  "description": "Wijnhuis Staff Portal - Employee authentication and availability management",
+  "main": "index.html",
+  "scripts": {
+    "start": "npx serve .",
+    "build": "echo 'Static site - no build needed'",
+    "dev": "npx serve . -l 3000"
+  },
+  "keywords": ["staffing", "portal", "authentication", "availability"],
+  "author": "Wijnhuis",
+  "license": "MIT",
+  "devDependencies": {
+    "serve": "^14.2.1"
+  }
+}

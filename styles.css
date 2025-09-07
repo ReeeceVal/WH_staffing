@@ -1,0 +1,343 @@
+/* Custom Tailwind Configuration for Navy/White Theme */
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Custom Navy Color Palette */
+:root {
+  --navy-50: #f0f4f8;
+  --navy-100: #d9e2ec;
+  --navy-200: #bcccdc;
+  --navy-300: #9fb3c8;
+  --navy-400: #829ab1;
+  --navy-500: #627d98;
+  --navy-600: #486581;
+  --navy-700: #334e68;
+  --navy-800: #243b53;
+  --navy-900: #102a43;
+}
+
+/* Extend Tailwind with custom navy colors */
+@layer utilities {
+  .text-navy-50 { color: var(--navy-50); }
+  .text-navy-100 { color: var(--navy-100); }
+  .text-navy-200 { color: var(--navy-200); }
+  .text-navy-300 { color: var(--navy-300); }
+  .text-navy-400 { color: var(--navy-400); }
+  .text-navy-500 { color: var(--navy-500); }
+  .text-navy-600 { color: var(--navy-600); }
+  .text-navy-700 { color: var(--navy-700); }
+  .text-navy-800 { color: var(--navy-800); }
+  .text-navy-900 { color: var(--navy-900); }
+  
+  .bg-navy-50 { background-color: var(--navy-50); }
+  .bg-navy-100 { background-color: var(--navy-100); }
+  .bg-navy-200 { background-color: var(--navy-200); }
+  .bg-navy-300 { background-color: var(--navy-300); }
+  .bg-navy-400 { background-color: var(--navy-400); }
+  .bg-navy-500 { background-color: var(--navy-500); }
+  .bg-navy-600 { background-color: var(--navy-600); }
+  .bg-navy-700 { background-color: var(--navy-700); }
+  .bg-navy-800 { background-color: var(--navy-800); }
+  .bg-navy-900 { background-color: var(--navy-900); }
+  
+  .border-navy-200 { border-color: var(--navy-200); }
+  .border-navy-300 { border-color: var(--navy-300); }
+  .border-navy-500 { border-color: var(--navy-500); }
+  
+  .ring-navy-500 { --tw-ring-color: var(--navy-500); }
+  .focus\:ring-navy-500:focus { --tw-ring-color: var(--navy-500); }
+  .focus\:border-navy-500:focus { border-color: var(--navy-500); }
+  .hover\:bg-navy-700:hover { background-color: var(--navy-700); }
+}
+
+/* Custom Components */
+@layer components {
+  .dropdown-item {
+    @apply px-4 py-3 cursor-pointer hover:bg-gray-50 border-b border-gray-100 last:border-b-0;
+  }
+  
+  .dropdown-item:hover {
+    @apply bg-navy-50;
+  }
+  
+  .dropdown-item.selected {
+    @apply bg-navy-100 text-navy-900;
+  }
+  
+  .pin-block {
+    @apply transition-all duration-200;
+  }
+  
+  .pin-block:focus {
+    @apply transform scale-105 shadow-lg;
+  }
+  
+  .pin-block.filled {
+    @apply bg-navy-50 border-navy-400;
+  }
+}
+
+/* Mobile-first responsive adjustments */
+@media (max-width: 640px) {
+  .container {
+    @apply px-4;
+  }
+  
+  .dropdown-item {
+    @apply py-4 text-base;
+  }
+}
+
+/* Smooth transitions for better UX */
+.transition-colors {
+  transition-property: color, background-color, border-color, text-decoration-color, fill, stroke;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+  transition-duration: 150ms;
+}
+
+/* Focus styles for accessibility */
+input:focus, button:focus {
+  outline: 2px solid transparent;
+  outline-offset: 2px;
+}
+
+/* Loading state for form submission */
+.loading {
+  @apply opacity-75 cursor-not-allowed;
+}
+
+.loading::after {
+  content: '';
+  @apply inline-block w-4 h-4 ml-2 border-2 border-white border-t-transparent rounded-full animate-spin;
+}
+
+/* ===== AVAILABILITY PAGE STYLES ===== */
+
+/* Employee name bar styling */
+.employee-name-bar {
+  @apply shadow-md;
+}
+
+/* Date range display styling */
+.date-range-display {
+  @apply shadow-sm;
+}
+
+.date-range-display h3 {
+  @apply text-navy-800;
+}
+
+/* Days available section styling */
+.days-available-section {
+  @apply shadow-sm;
+}
+
+.days-available-section h3 {
+  @apply text-navy-800;
+}
+
+/* Day checkbox container styling */
+.day-checkbox-container {
+  @apply transition-all duration-200 hover:bg-gray-50 rounded-lg p-3;
+}
+
+.day-checkbox-container:hover {
+  @apply bg-navy-50;
+}
+
+/* Day checkbox styling */
+.day-checkbox {
+  width: 35px;    /* ← Change this for width */
+  height: 35px;   /* ← Change this for height */
+  border: 2px solid #d1d5db;
+  border-radius: 4px;
+  background-color: white;
+  cursor: pointer;
+  position: relative;
+  display: block;
+  flex-shrink: 0;
+  margin: 0;
+  padding: 0;
+}
+
+.day-checkbox:checked {
+  background-color: #486581;
+  border-color: #486581;
+}
+
+.day-checkbox:checked::after {
+  content: '✓';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  color: white;
+  font-size: 18px;
+  font-weight: bold;
+  line-height: 1;
+}
+
+.day-checkbox:checked + span {
+  @apply text-navy-800 font-medium;
+}
+
+/* ===== TIMELINE COMPONENTS ===== */
+
+/* Time availability container */
+.time-availability-container {
+  @apply bg-white border border-gray-200 rounded-lg p-6 mb-4 shadow-sm;
+}
+
+.time-availability-container h3 {
+  @apply text-md font-medium text-navy-900 mb-4;
+}
+
+/* Timeline slider container */
+.timeline-slider {
+  @apply relative w-full mb-4;
+  height: 60px;
+}
+
+/* Timeline track */
+.timeline-track {
+  @apply absolute top-1/2 left-0 w-full bg-gray-200 rounded-full;
+  height: 8px;
+  transform: translateY(-50%);
+}
+
+/* Timeline range (highlighted selected range) */
+.timeline-range {
+  @apply absolute top-1/2 bg-navy-600 rounded-full;
+  height: 8px;
+  transform: translateY(-50%);
+  transition: all 0.2s ease;
+}
+
+/* Timeline handles */
+.timeline-handle {
+  @apply absolute top-1/2 w-5 h-5 bg-navy-600 rounded-full cursor-pointer shadow-md;
+  transform: translate(-50%, -50%);
+  transition: all 0.2s ease;
+  z-index: 10;
+}
+
+.timeline-handle:hover {
+  @apply bg-navy-700 transform translate(-50%, -50%) scale-110;
+}
+
+.timeline-handle:active {
+  @apply bg-navy-800 transform translate(-50%, -50%) scale-105;
+}
+
+/* Timeline ticks */
+.timeline-tick {
+  @apply absolute top-1/2 bg-gray-400;
+  transform: translateY(-50%);
+}
+
+.timeline-tick.major {
+  @apply w-1;
+  height: 16px;
+}
+
+.timeline-tick.minor {
+  @apply w-px;
+  height: 8px;
+}
+
+/* Timeline labels */
+.timeline-label {
+  @apply absolute text-xs text-gray-600;
+  top: 20px;
+  transform: translateX(-50%);
+  white-space: nowrap;
+}
+
+/* Time display boxes */
+.time-display-boxes {
+  @apply flex justify-between items-center mt-4;
+}
+
+.time-display-box {
+  @apply bg-gray-50 border border-gray-300 rounded-lg px-4 py-2 text-center;
+  min-width: 80px;
+}
+
+.time-display-box .label {
+  @apply text-xs text-gray-500 mb-1;
+}
+
+.time-display-box .time {
+  @apply text-lg font-mono font-semibold text-navy-900;
+}
+
+/* Validation feedback */
+.timeline-invalid .timeline-range {
+  @apply bg-red-500;
+}
+
+.timeline-invalid .timeline-handle {
+  @apply bg-red-500;
+}
+
+.timeline-invalid .timeline-handle:hover {
+  @apply bg-red-600;
+}
+
+/* Mobile optimizations for timeline */
+@media (max-width: 640px) {
+  .timeline-slider {
+    height: 80px;
+  }
+  
+  .timeline-handle {
+    @apply w-6 h-6;
+    min-width: 44px;
+    min-height: 44px;
+  }
+  
+  .timeline-label {
+    @apply text-xs;
+    top: 25px;
+  }
+  
+  .time-display-boxes {
+    @apply flex-col gap-3;
+  }
+  
+  .time-display-box {
+    @apply w-full;
+  }
+}
+
+/* Touch-friendly interactions */
+@media (hover: none) and (pointer: coarse) {
+  .timeline-handle {
+    @apply w-8 h-8;
+  }
+  
+  .timeline-handle:hover {
+    @apply transform translate(-50%, -50%) scale-100;
+  }
+}
+
+/* Responsive adjustments for availability page */
+@media (max-width: 640px) {
+  .days-available-section .flex {
+    @apply gap-4;
+  }
+  
+  .day-checkbox-container {
+    @apply p-2;
+  }
+  
+  .day-checkbox {
+    width: 30px;    /* ← Change this for mobile width */
+    height: 30px;   /* ← Change this for mobile height */
+  }
+  
+  .day-checkbox:checked::after {
+    font-size: 16px;
+  }
+}

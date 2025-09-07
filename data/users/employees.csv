@@ -1,0 +1,11 @@
+employee_id,name,surname,user_pin,start_employment
+001,John,Smith,12345,2023-01-15
+002,Sarah,Johnson,23456,2023-02-20
+003,Mike,Williams,34567,2023-03-10
+004,Emily,Brown,45678,2023-04-05
+005,David,Jones,56789,2023-05-12
+006,Lisa,Davis,67890,2023-06-18
+007,Chris,Miller,78901,2023-07-22
+008,Anna,Wilson,89012,2023-08-30
+009,Tom,Moore,90123,2023-09-14
+010,Kate,Taylor,01234,2023-10-08

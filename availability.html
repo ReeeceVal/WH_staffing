@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Staff Availability - Wijnhuis</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="styles.css?v=2">
+</head>
+<body class="bg-white min-h-screen">
+    <div class="container mx-auto px-4 py-8 max-w-md">
+        <!-- Logo Section -->
+        <div class="text-center mb-8">
+            <img src="media/wh_logo.png" alt="Wijnhuis Logo" class="mx-auto h-20 w-auto mb-4">
+            <h1 class="text-2xl font-bold text-navy-900">Staff Availability</h1>
+            <p class="text-gray-600 mt-2">Please ensure all details are correct before submitting</p>
+        </div>
+
+        <!-- Employee Name Bar -->
+        <div class="employee-name-bar bg-navy-600 text-white rounded-lg p-4 mb-6">
+            <h2 class="text-lg font-semibold text-center" id="employeeName">Loading...</h2>
+        </div>
+
+        <!-- Date Range Display -->
+        <div class="date-range-display bg-white border border-gray-200 rounded-lg p-4 mb-6">
+            <p class="text-gray-700 text-center" id="dateRange">Calculating...</p>
+        </div>
+
+        <!-- Days Available Selection -->
+        <div class="days-available-section bg-white border border-gray-200 rounded-lg p-6">
+            <h3 class="text-md font-medium text-navy-900 mb-4">Days Available</h3>
+            <div class="flex flex-wrap gap-6 justify-center">
+                <label class="day-checkbox-container flex flex-col items-center cursor-pointer">
+                    <span class="text-gray-700 text-sm mb-2">Tues</span>
+                    <input type="checkbox" class="day-checkbox" data-day="tuesday" />
+                </label>
+                <label class="day-checkbox-container flex flex-col items-center cursor-pointer">
+                    <span class="text-gray-700 text-sm mb-2">Wed</span>
+                    <input type="checkbox" class="day-checkbox" data-day="wednesday" />
+                </label>
+                <label class="day-checkbox-container flex flex-col items-center cursor-pointer">
+                    <span class="text-gray-700 text-sm mb-2">Thur</span>
+                    <input type="checkbox" class="day-checkbox" data-day="thursday" />
+                </label>
+                <label class="day-checkbox-container flex flex-col items-center cursor-pointer">
+                    <span class="text-gray-700 text-sm mb-2">Fri</span>
+                    <input type="checkbox" class="day-checkbox" data-day="friday" />
+                </label>
+                <label class="day-checkbox-container flex flex-col items-center cursor-pointer">
+                    <span class="text-gray-700 text-sm mb-2">Sat</span>
+                    <input type="checkbox" class="day-checkbox" data-day="saturday" />
+                </label>
+                <label class="day-checkbox-container flex flex-col items-center cursor-pointer">
+                    <span class="text-gray-700 text-sm mb-2">Sun</span>
+                    <input type="checkbox" class="day-checkbox" data-day="sunday" />
+                </label>
+            </div>
+        </div>
+
+        <!-- Dynamic Time Availability Container -->
+        <div id="timeAvailabilityContainer" class="mt-6">
+            <!-- Time availability elements will be dynamically inserted here -->
+        </div>
+
+        <!-- Back Button -->
+        <div class="mt-6">
+            <button 
+                onclick="window.location.href='index.html'"
+                class="w-full bg-navy-600 text-white py-3 px-4 rounded-lg font-medium hover:bg-navy-700 focus:ring-2 focus:ring-navy-500 focus:ring-offset-2 transition-colors"
+            >
+                Back to Login
+            </button>
+        </div>
+    </div>
+    
+    <script src="config/availability-config.js?v=5"></script>
+    <script src="script.js?v=5"></script>
+    <script>
+        // Initialize availability page when DOM is loaded
+        document.addEventListener('DOMContentLoaded', function() {
+            setupAvailabilityPage();
+        });
+    </script>
+</body>
+</html>

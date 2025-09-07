@@ -1,0 +1,13 @@
+Using command prompts (links will be provided):
+- New Projects:
+    - Define a project brief (business) to reference, regardless of the feature
+    - Embed tech guidance into .cursorrules
+- Building additional features
+    - plan_feature command
+    - review the plan
+    - always phase out 
+    - code_review command
+    - read through review
+    - Select fixes to implement
+    - Manually test
+    - confirm code & merge

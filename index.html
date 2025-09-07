@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Wijnhuis Staff Portal</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body class="bg-white min-h-screen">
+    <div class="container mx-auto px-4 py-8 max-w-md">
+        <!-- Logo Section -->
+        <div class="text-center mb-8">
+            <img src="media/wh_logo.png" alt="Wijnhuis Logo" class="mx-auto h-20 w-auto mb-4">
+            <h1 class="text-2xl font-bold text-navy-900">Staff Portal</h1>
+            <p class="text-gray-600 mt-2">Please sign in to continue</p>
+        </div>
+
+        <!-- Authentication Form -->
+        <form id="authForm" class="space-y-6">
+            <!-- Employee Name Dropdown -->
+            <div class="relative">
+                <label for="employeeSelect" class="block text-sm font-medium text-navy-900 mb-2">
+                    Employee Name
+                </label>
+                <div class="relative">
+                    <input 
+                        type="text" 
+                        id="employeeSelect" 
+                        name="employeeSelect"
+                        placeholder="Type to search employees..."
+                        class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-navy-500 focus:border-navy-500 outline-none transition-colors"
+                        autocomplete="off"
+                    >
+                    <div id="employeeDropdown" class="absolute z-10 w-full mt-1 bg-white border border-gray-300 rounded-lg shadow-lg hidden max-h-60 overflow-y-auto">
+                        <!-- Dropdown items will be populated by JavaScript -->
+                    </div>
+                </div>
+                <input type="hidden" id="selectedEmployeeId" name="selectedEmployeeId">
+            </div>
+
+            <!-- PIN Input -->
+            <div>
+                <label class="block text-sm font-medium text-navy-900 mb-2">
+                    PIN
+                </label>
+                <div class="flex justify-center space-x-3" id="pinContainer">
+                    <input 
+                        type="text" 
+                        class="pin-block w-12 h-12 text-center text-xl font-semibold border-2 border-gray-300 rounded-lg focus:ring-2 focus:ring-navy-500 focus:border-navy-500 outline-none transition-colors"
+                        maxlength="1"
+                        inputmode="numeric"
+                        pattern="[0-9]"
+                        data-pin-index="0"
+                    >
+                    <input 
+                        type="text" 
+                        class="pin-block w-12 h-12 text-center text-xl font-semibold border-2 border-gray-300 rounded-lg focus:ring-2 focus:ring-navy-500 focus:border-navy-500 outline-none transition-colors"
+                        maxlength="1"
+                        inputmode="numeric"
+                        pattern="[0-9]"
+                        data-pin-index="1"
+                    >
+                    <input 
+                        type="text" 
+                        class="pin-block w-12 h-12 text-center text-xl font-semibold border-2 border-gray-300 rounded-lg focus:ring-2 focus:ring-navy-500 focus:border-navy-500 outline-none transition-colors"
+                        maxlength="1"
+                        inputmode="numeric"
+                        pattern="[0-9]"
+                        data-pin-index="2"
+                    >
+                    <input 
+                        type="text" 
+                        class="pin-block w-12 h-12 text-center text-xl font-semibold border-2 border-gray-300 rounded-lg focus:ring-2 focus:ring-navy-500 focus:border-navy-500 outline-none transition-colors"
+                        maxlength="1"
+                        inputmode="numeric"
+                        pattern="[0-9]"
+                        data-pin-index="3"
+                    >
+                    <input 
+                        type="text" 
+                        class="pin-block w-12 h-12 text-center text-xl font-semibold border-2 border-gray-300 rounded-lg focus:ring-2 focus:ring-navy-500 focus:border-navy-500 outline-none transition-colors"
+                        maxlength="1"
+                        inputmode="numeric"
+                        pattern="[0-9]"
+                        data-pin-index="4"
+                    >
+                </div>
+                <input type="hidden" id="userPin" name="userPin">
+            </div>
+
+            <!-- Error Message -->
+            <div id="errorMessage" class="hidden bg-red-50 border border-red-200 text-red-700 px-4 py-3 rounded-lg">
+                <p id="errorText"></p>
+            </div>
+
+            <!-- Submit Button -->
+            <button 
+                type="submit" 
+                class="w-full bg-navy-600 text-white py-3 px-4 rounded-lg font-medium hover:bg-navy-700 focus:ring-2 focus:ring-navy-500 focus:ring-offset-2 transition-colors disabled:opacity-50 disabled:cursor-not-allowed"
+            >
+                Sign In
+            </button>
+        </form>
+
+        <!-- Success Message (hidden by default) -->
+        <div id="successMessage" class="hidden mt-6 bg-green-50 border border-green-200 text-green-700 px-4 py-3 rounded-lg">
+            <p class="mb-4">Authentication successful!</p>
+            <button 
+                id="continueButton"
+                class="w-full bg-green-600 text-white py-3 px-4 rounded-lg font-medium hover:bg-green-700 focus:ring-2 focus:ring-green-500 focus:ring-offset-2 transition-colors"
+            >
+                Continue
+            </button>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
