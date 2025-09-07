@@ -11,7 +11,10 @@ const AVAILABILITY_CONFIG = {
   timelineSettings: {
     majorTickInterval: 2, // hours
     minorTickInterval: 1, // hours
-    handleSize: 20,
+    handleSize: {
+      desktop: 20,
+      mobile: 12
+    },
     trackHeight: 8,
     startOffset: 1 // offset to start from even hours
   }

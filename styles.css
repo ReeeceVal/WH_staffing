@@ -236,7 +236,9 @@ button[type="submit"]:hover {
 
 /* Timeline handles */
 .timeline-handle {
-  @apply absolute top-1/2 w-5 h-5 bg-navy-600 rounded-full cursor-pointer shadow-md;
+  @apply absolute top-1/2 bg-navy-600 rounded-full cursor-pointer shadow-md;
+  width: 20px;
+  height: 20px;
   transform: translate(-50%, -50%);
   transition: all 0.2s ease;
   z-index: 10;
@@ -312,7 +314,8 @@ button[type="submit"]:hover {
   }
   
   .timeline-handle {
-    @apply w-6 h-6;
+    width: 16px;
+    height: 16px;
     min-width: 44px;
     min-height: 44px;
   }
@@ -334,7 +337,8 @@ button[type="submit"]:hover {
 /* Touch-friendly interactions */
 @media (hover: none) and (pointer: coarse) {
   .timeline-handle {
-    @apply w-8 h-8;
+    width: 16px;
+    height: 16px;
   }
   
   .timeline-handle:hover {
