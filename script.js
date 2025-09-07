@@ -14,21 +14,52 @@ const errorText = document.getElementById('errorText');
 
 // Initialize the application
 document.addEventListener('DOMContentLoaded', function() {
+    console.log('DOM loaded, initializing application...');
     loadEmployeeData();
     setupEventListeners();
+    
+    // Debug: Check if elements exist
+    console.log('Employee select element:', document.getElementById('employeeSelect'));
+    console.log('Employee dropdown element:', document.getElementById('employeeDropdown'));
+    console.log('Auth form element:', document.getElementById('authForm'));
+    console.log('Submit button element:', document.querySelector('button[type="submit"]'));
 });
 
-// Load employee data from CSV
+// Load employee data from embedded data
 async function loadEmployeeData() {
     try {
-        const response = await fetch('data/users/employees.csv');
-        const csvText = await response.text();
-        employees = parseCSV(csvText);
-        console.log('Loaded employees:', employees);
+        // Try to load from CSV first (for local development)
+        try {
+            const response = await fetch('data/users/employees.csv');
+            const csvText = await response.text();
+            employees = parseCSV(csvText);
+            console.log('Loaded employees from CSV:', employees);
+        } catch (csvError) {
+            // Fallback to embedded data (for production deployment)
+            console.log('CSV loading failed, using embedded data:', csvError);
+            employees = getEmbeddedEmployeeData();
+            console.log('Loaded employees from embedded data:', employees);
+        }
     } catch (error) {
         console.error('Error loading employee data:', error);
         showError('Failed to load employee data. Please refresh the page.');
     }
+}
+
+// Embedded employee data as fallback
+function getEmbeddedEmployeeData() {
+    return [
+        { employee_id: '001', name: 'John', surname: 'Smith', user_pin: '12345', start_employment: '2023-01-15' },
+        { employee_id: '002', name: 'Sarah', surname: 'Johnson', user_pin: '23456', start_employment: '2023-02-20' },
+        { employee_id: '003', name: 'Mike', surname: 'Williams', user_pin: '34567', start_employment: '2023-03-10' },
+        { employee_id: '004', name: 'Emily', surname: 'Brown', user_pin: '45678', start_employment: '2023-04-05' },
+        { employee_id: '005', name: 'David', surname: 'Jones', user_pin: '56789', start_employment: '2023-05-12' },
+        { employee_id: '006', name: 'Lisa', surname: 'Davis', user_pin: '67890', start_employment: '2023-06-18' },
+        { employee_id: '007', name: 'Chris', surname: 'Miller', user_pin: '78901', start_employment: '2023-07-22' },
+        { employee_id: '008', name: 'Anna', surname: 'Wilson', user_pin: '89012', start_employment: '2023-08-30' },
+        { employee_id: '009', name: 'Tom', surname: 'Moore', user_pin: '90123', start_employment: '2023-09-14' },
+        { employee_id: '010', name: 'Kate', surname: 'Taylor', user_pin: '01234', start_employment: '2023-10-08' }
+    ];
 }
 
 // Parse CSV data
