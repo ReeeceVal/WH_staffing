@@ -180,7 +180,7 @@ function handlePinBlockInput(event, index) {
     // Update hidden PIN field
     updateHiddenPinField();
     
-    // Move to next block if current block has a value
+    // Move to next block immediately when a digit is entered
     if (value && index < pinBlocks.length - 1) {
         pinBlocks[index + 1].focus();
     }
