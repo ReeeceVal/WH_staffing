@@ -102,6 +102,26 @@ input:focus, button:focus {
   outline-offset: 2px;
 }
 
+/* Firefox-specific button visibility fix */
+button[type="submit"] {
+  background-color: #1e3a8a !important;
+  color: white !important;
+  border: none !important;
+}
+
+button[type="submit"]:hover {
+  background-color: #334e68 !important;
+}
+
+/* Firefox-specific fix for all navy-600 elements */
+.bg-navy-600 {
+  background-color: #1e3a8a !important;
+}
+
+.bg-navy-600:hover {
+  background-color: #334e68 !important;
+}
+
 /* Loading state for form submission */
 .loading {
   @apply opacity-75 cursor-not-allowed;
