@@ -11,8 +11,6 @@ const pinBlocks = document.querySelectorAll('.pin-block');
 const authForm = document.getElementById('authForm');
 const errorMessage = document.getElementById('errorMessage');
 const errorText = document.getElementById('errorText');
-const successMessage = document.getElementById('successMessage');
-const continueButton = document.getElementById('continueButton');
 
 // Initialize the application
 document.addEventListener('DOMContentLoaded', function() {
@@ -68,9 +66,6 @@ function setupEventListeners() {
         authForm.addEventListener('submit', handleFormSubmission);
     }
     
-    if (continueButton) {
-        continueButton.addEventListener('click', handleContinue);
-    }
     
     // Click outside to close dropdown
     document.addEventListener('click', handleOutsideClick);
@@ -339,23 +334,17 @@ function hideError() {
     errorMessage.classList.add('hidden');
 }
 
-// Show success message
+// Show success message and redirect
 function showSuccess() {
-    successMessage.classList.remove('hidden');
-    errorMessage.classList.add('hidden');
-    authForm.classList.add('hidden');
-}
-
-// Handle continue button click
-function handleContinue() {
     // Store employee data in session storage for availability page
     if (selectedEmployee) {
         storeEmployeeInSession(selectedEmployee);
     }
     
-    // Redirect to the availability page
+    // Redirect to the availability page immediately
     window.location.href = 'availability.html';
 }
+
 
 // Utility function to clear form
 function clearForm() {
@@ -363,7 +352,6 @@ function clearForm() {
     clearSelection();
     clearPinBlocks();
     hideError();
-    successMessage.classList.add('hidden');
     authForm.classList.remove('hidden');
 }
 

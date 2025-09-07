@@ -89,30 +89,21 @@
                 <input type="hidden" id="userPin" name="userPin">
             </div>
 
-            <!-- Error Message -->
-            <div id="errorMessage" class="hidden bg-red-50 border border-red-200 text-red-700 px-4 py-3 rounded-lg">
-                <p id="errorText"></p>
-            </div>
-
             <!-- Submit Button -->
             <button 
                 type="submit" 
-                class="w-full bg-navy-600 text-white py-3 px-4 rounded-lg font-medium hover:bg-navy-700 focus:ring-2 focus:ring-navy-500 focus:ring-offset-2 transition-colors disabled:opacity-50 disabled:cursor-not-allowed"
+                class="w-full bg-navy-600 text-white py-2 px-6 rounded-lg font-semibold text-base hover:bg-navy-700 focus:ring-2 focus:ring-navy-500 focus:ring-offset-2 transition-colors disabled:opacity-50 disabled:cursor-not-allowed shadow-md hover:shadow-lg"
+                style="background-color: #1e3a8a; color: white;"
             >
-                Enter
+                Continue to Portal
             </button>
+
+            <!-- Error Message -->
+            <div id="errorMessage" class="hidden bg-red-50 border border-red-200 text-red-700 px-4 py-3 rounded-lg mt-4">
+                <p id="errorText"></p>
+            </div>
         </form>
 
-        <!-- Success Message (hidden by default) -->
-        <div id="successMessage" class="hidden mt-6 bg-green-50 border border-green-200 text-green-700 px-4 py-3 rounded-lg">
-            <p class="mb-4">Authentication successful!</p>
-            <button 
-                id="continueButton"
-                class="w-full bg-green-600 text-white py-3 px-4 rounded-lg font-medium hover:bg-green-700 focus:ring-2 focus:ring-green-500 focus:ring-offset-2 transition-colors"
-            >
-                Continue
-            </button>
-        </div>
     </div>
 
     <script src="script.js"></script>
